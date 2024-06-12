@@ -1,0 +1,124 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import javafx.scene.paint.Color;  
+import javafx.scene.shape.Circle;  
+
+import javafx.scene.control.Label;
+import javafx.scene.control.CheckBox;  
+import javafx.scene.layout.HBox;  
+
+import javafx.scene.control.*; 
+import javafx.scene.layout.*; 
+import javafx.event.ActionEvent; 
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.canvas.*; 
+import javafx.scene.web.*; 
+
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+
+		//Group group = new Group();
+	    // -----------menu --------------
+		// source: https://jenkov.com/tutorials/javafx/menubar.html
+		MenuBar menuBar = new MenuBar();
+        //HBox root = new HBox();  
+
+        //VBox vBox = new VBox(menuBar);
+        //Menu menuA = new Menu("Menu 1");
+        Menu fileMenu = new Menu("File");
+        Menu editMenu = new Menu("Edit");
+        // Create some menu items
+        MenuItem newItem = new MenuItem("New");
+        MenuItem openItem = new MenuItem("Open");
+        MenuItem saveItem = new MenuItem("Save");
+        MenuItem exitItem = new MenuItem("Exit");
+        
+        // Add menu items to the file menu
+        fileMenu.getItems().addAll(newItem, openItem, saveItem, exitItem);
+
+        // Add menus to the menu bar
+        menuBar.getMenus().addAll(fileMenu, editMenu);
+
+        //menuBar.getMenus().add(menuA);    
+        
+        MenuItem menuItem1 = new MenuItem("Item 1");
+        MenuItem menuItem2 = new MenuItem("Item 2");
+
+        //menuA.getItems().add(menuItem1);
+        //menuA.getItems().add(menuItem2);
+        
+
+        // Create an HBox to hold the menu bar
+        HBox menuBox = new HBox();
+        menuBox.getChildren().add(menuBar);
+
+        // Create a layout
+        BorderPane root = new BorderPane();
+        root.setTop(menuBox); // Set the menu box at the top
+        
+        //menuBox.getChildren().add(menuBar);
+        //*-*-BorderPane borderPane = new BorderPane();
+		// Set the menu bar to the frame
+     // Create a layout
+        //BorderPane root = new BorderPane();
+        //root.setTop(menuBox);
+        //borderPane.setTop(menuBar);
+      //*-*-ToolBar toolbar = new ToolBar();
+      //*-*-HBox statusbar = new HBox();
+        //Node appContent = new AppContentNode();
+      //*-*-borderPane.setTop(menuBar);
+        //borderPane.setCenter(appContent);
+      //*-*-borderPane.setBottom(statusbar);
+
+        // -----------menu --------------
+        
+        Scene scene = new Scene(root,1100,400);
+        primaryStage.setTitle("Hello JavaFX App");        
+        primaryStage.setScene(scene);  	        
+		primaryStage.show();
+        
+		// Set the title of the window.
+
+	        Circle circle = new Circle();  
+	        circle.setCenterX(200);  
+	        circle.setCenterY(200);  
+	        circle.setRadius(100);  
+	        circle.setFill(Color.RED);  
+
+	        Label l = new Label("What do you listen:     "); 
+	        CheckBox c1 = new CheckBox("Radio one");  
+	        CheckBox c2 = new CheckBox("Radio Mirchi");  
+	        CheckBox c3 = new CheckBox("Red FM");  
+	        CheckBox c4 = new CheckBox("FM GOLD");  
+	        root.getChildren().addAll(l,c1,c2,c3,c4,circle);  
+	        root.setSpacing(5);  
+
+            // add buttons to HBox 
+            for (int i = 0; i < 2; i++)  
+            { 
+                root.getChildren().add(new Button("Button " 
+                                           + (int)(i + 1))); 
+                root.setSpacing(10); 
+            } 
+         // setAlignment 
+            root.setAlignment(Pos.CENTER);
+                       
+		} 
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

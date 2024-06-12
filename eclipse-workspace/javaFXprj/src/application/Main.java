@@ -1,0 +1,88 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import javafx.scene.paint.Color;  
+import javafx.scene.shape.Circle;  
+
+import javafx.scene.control.Label;
+import javafx.scene.control.CheckBox;  
+import javafx.scene.layout.HBox;  
+import javafx.scene.layout.VBox;
+
+import javafx.scene.control.*; 
+import javafx.scene.layout.*; 
+import javafx.geometry.Pos;
+
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+
+		//Group group = new Group();
+	    // -----------menu --------------
+		// source: https://jenkov.com/tutorials/javafx/menubar.html - for building the logic of the page
+        // source 2 : https://onecompiler.com/java/425gkav9d - for building the menu
+		HBox hBox = new HBox();
+        VBox vBox = new VBox();
+        
+        //building the menuBar;
+		MenuBar menuBar = new MenuBar();
+        Menu menuA = new Menu("Menu 1");
+        menuBar.getMenus().add(menuA);    
+        
+        MenuItem menuItem1 = new MenuItem("Item 1");
+        MenuItem menuItem2 = new MenuItem("Item 2");
+
+        menuA.getItems().add(menuItem1);
+        menuA.getItems().add(menuItem2);
+
+        // Create the BorderPane layout
+        BorderPane borderPane = new BorderPane();
+        borderPane.setTop(menuBar);
+        borderPane.setCenter(vBox);
+        // -----------menu --------------
+        
+        Scene scene = new Scene(borderPane,1100,400);
+        primaryStage.setTitle("Hello JavaFX App");        
+        primaryStage.setScene(scene);  	        
+		primaryStage.show();
+        
+		// Set the title of the window.
+
+	        Circle circle = new Circle();  
+	        circle.setCenterX(200);  
+	        circle.setCenterY(200);  
+	        circle.setRadius(100);  
+	        circle.setFill(Color.RED);  
+
+	        Label l = new Label("What do you listen:     "); 
+	        CheckBox c1 = new CheckBox("Radio one");  
+	        CheckBox c2 = new CheckBox("Radio Mirchi");  
+	        CheckBox c3 = new CheckBox("Red FM");  
+	        CheckBox c4 = new CheckBox("FM GOLD");  
+	        vBox.getChildren().addAll(l,c1,c2,c3,c4,circle);  
+	        vBox.setSpacing(5);  
+
+            // add buttons to HBox 
+            for (int i = 0; i < 2; i++)  
+            { 
+            	vBox.getChildren().add(new Button("Button " 
+                                           + (int)(i + 1))); 
+            	vBox.setSpacing(10); 
+            } 
+         // setAlignment 
+            vBox.setAlignment(Pos.CENTER);
+                       
+		} 
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

@@ -1,0 +1,67 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.scene.Group;  
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;  
+import javafx.scene.shape.Circle;  
+import javafx.stage.Stage;
+//import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.CheckBox;  
+import javafx.scene.layout.HBox;  
+import javafx.scene.control.*;  
+
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+
+		//try {
+			//BorderPane root = new BorderPane();
+			// Set the title of the window.
+	        primaryStage.setTitle("Hello JavaFX App");        
+	        // TODO Auto-generated method stub  
+	        //Group group = new Group();  
+	        Circle circle = new Circle();  
+	        circle.setCenterX(200);  
+	        circle.setCenterY(200);  
+	        circle.setRadius(100);  
+	        circle.setFill(Color.RED);  
+	        //root.getChildren().addAll(circle);  
+
+	        Label l = new Label("What do you listen:     "); 
+	        CheckBox c1 = new CheckBox("Radio one");  
+	        CheckBox c2 = new CheckBox("Radio Mirchi");  
+	        CheckBox c3 = new CheckBox("Red FM");  
+	        CheckBox c4 = new CheckBox("FM GOLD");  
+	        HBox root = new HBox();  
+	        root.getChildren().addAll(l,c1,c2,c3,c4,circle);  
+	        root.setSpacing(5);  
+	        
+	        MenuBar menubar = new MenuBar();  
+	        Menu FileMenu = new Menu("File");  
+	        MenuItem filemenu1=new MenuItem("new");  
+	        MenuItem filemenu2=new MenuItem("Save");  
+	        MenuItem filemenu3=new MenuItem("Exit");  
+	        Menu EditMenu=new Menu("Edit");  
+	        MenuItem EditMenu1=new MenuItem("Cut");  
+	        MenuItem EditMenu2=new MenuItem("Copy");  
+	        MenuItem EditMenu3=new MenuItem("Paste");  
+	        EditMenu.getItems().addAll(EditMenu1,EditMenu2,EditMenu3);  
+	        root.getChildren().setTop(menubar);  
+	        FileMenu.getItems().addAll(filemenu1,filemenu2,filemenu3);  
+	        menubar.getMenus().addAll(FileMenu,EditMenu);  
+
+	        Scene scene = new Scene(root,800,400);
+	        primaryStage.setScene(scene);  	        
+			primaryStage.show();
+		} 
+		//catch(Exception e) {
+		//	e.printStackTrace();
+		//}
+	//}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
